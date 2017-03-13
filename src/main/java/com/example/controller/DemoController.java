@@ -69,18 +69,18 @@ public class DemoController {
         }
     }
 
-    @GetMapping("/hello")
+    @PostMapping("/auth")
     @ResponseBody
-    public User hello(@RequestParam String name) {
+    public User auth(@RequestParam String username, @RequestParam String password) {
 
-        if (name.equals("hello")) {
+        if (username.equals("admin") && password.equals("123456")) {
 
             Group group = new Group();
             group.setFaculty("FIT");
             group.setNumber("6211");
 
             User user = new User();
-            user.setName(name);
+            user.setName(username);
             user.setAge(18);
             user.setGroup(group);
 
